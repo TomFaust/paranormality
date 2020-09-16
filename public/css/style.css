@@ -47,32 +47,45 @@ posts{
     top:0.5vh;
     min-height:49vw;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows:14.3em;
+    grid-template-columns: auto;
+    grid-auto-rows:20vh;
     grid-gap:1vw;
 }
 
-postTitle{
-    font-weight: bold;
-    width:100%;
-}
-
-preview{
-
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow:hidden;
-}
-
-
 
 post{
-    background-color: blue;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#373737+20,4d4d4d+50,373737+80&0+0,0.8+6,1+19,1+81,0.8+92,0+100 */
+    background: -moz-linear-gradient(-45deg,  rgba(55,55,55,0) 0%, rgba(55,55,55,0.8) 6%, rgba(55,55,55,1) 19%, rgba(55,55,55,1) 20%, rgba(77,77,77,1) 50%, rgba(55,55,55,1) 80%, rgba(55,55,55,1) 81%, rgba(55,55,55,0.8) 92%, rgba(55,55,55,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#00373737',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    display: grid;
+    grid-template-areas:
+    'img title'
+    'img preview'
+    'img view';
+    grid-gap:1vw;
+    color:white;
 }
 
 post img{
+    height:100%;
+    grid-area:img;
+}
+
+post preview{
+    grid-area:preview;
+ }
+
+post postTitle{
+    font-weight: bold;
     width:100%;
+    grid-area:title;
+}
+
+post detail{
+    grid-area:view;
 }
 
 profile{
@@ -90,7 +103,7 @@ profile{
 top{
     left:71vw;
     width:20vw;
-    min-height:20vw;
+    min-height:10vw;
     top:calc(9vh + 20vw);
     position:absolute;
     background-color: red;
