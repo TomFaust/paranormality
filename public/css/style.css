@@ -1,0 +1,100 @@
+main{
+    position:absolute;
+    top:28vh;
+    width:94vw;
+    left:3vw;
+    min-height: 72vh;
+}
+
+html{
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
+    background-size:30%;
+    padding:0;
+    margin:0;
+}
+
+body{
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+}
+
+header{
+    position: absolute;
+    width:100vw;
+    top:0;
+    left:0;
+    height:18vh;
+    background-color:white;
+}
+
+nav{
+    width:100vw;
+    position: absolute;
+    left:0;
+    top:18vh;
+    background-color:black;
+    color:black;
+    height:7vh;
+}
+
+posts{
+    position:absolute;
+    width:64vw;
+    padding:1vw;
+    left:3vw;
+    top:0.5vh;
+    min-height:49vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows:14.3em;
+    grid-gap:1vw;
+}
+
+postTitle{
+    font-weight: bold;
+    width:100%;
+}
+
+preview{
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow:hidden;
+}
+
+
+
+post{
+    background-color: blue;
+}
+
+post img{
+    width:100%;
+}
+
+profile{
+    left:71vw;
+    width:20vw;
+    height:20vw;
+    top:3vh;
+    position:absolute;
+    background-color: white;
+    -webkit-border-radius: 1vw;
+    -moz-border-radius: 1vw;
+    border-radius: 1vw;
+}
+
+top{
+    left:71vw;
+    width:20vw;
+    min-height:20vw;
+    top:calc(9vh + 20vw);
+    position:absolute;
+    background-color: red;
+    -webkit-border-radius: 1vw;
+    -moz-border-radius: 1vw;
+    border-radius: 1vw;
+}

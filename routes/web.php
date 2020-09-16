@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome',['items' => 'id']);
 });
 
-Route::get('/news','NewsController@show')->name('news');
-
-Route::get('/about','AboutController@show')->name('about');
+Route::get('/about','NewsItemController@show')->name('about');
+Route::get('/','NewsItemController@index')->name('index');
+Route::get('news/create','NewsItemController@create')->name('news.create');
+Route::post('news/store','NewsItemController@store')->name('news.store');
+Route::get('news/{id}','NewsItemController@show')->name('news.show');

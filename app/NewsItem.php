@@ -28,6 +28,42 @@ class NewsItem
             "title" => "Sporten is belangrijk",
             "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
             "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 4,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 5,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 6,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 7,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 8,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
+        ],
+        [
+            "id" => 9,
+            "title" => "Sporten is belangrijk",
+            "description" => "Neuter cursus tandem promissios nix est. When drying puréed margerines, be sure they are room temperature. The mighty bung hole calmly robs the wave.",
+            "image" => "http://lorempixel.com/400/200/sports/"
         ]
     ];
 
