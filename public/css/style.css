@@ -12,6 +12,7 @@ html{
     background-size:30%;
     padding:0;
     margin:0;
+    font-family: "Arial";
 }
 
 body{
@@ -22,21 +23,22 @@ body{
 
 header{
     position: absolute;
-    width:100vw;
+    width:92vw;
     top:0;
-    left:0;
+    left:4vw;
     height:18vh;
-    background-color:white;
+    background-color:#222222;
 }
 
 nav{
-    width:100vw;
+    width:92vw;
     position: absolute;
-    left:0;
+    left:4vw;
     top:18vh;
-    background-color:black;
+    background-color:#222222;
     color:black;
     height:7vh;
+    border-bottom: solid white 4px;
 }
 
 posts{
@@ -67,11 +69,13 @@ post{
     'img view';
     grid-gap:1vw;
     color:white;
+    border-radius: 1vh;
 }
 
 post img{
     height:100%;
     grid-area:img;
+    border-radius: 1vh;
 }
 
 post preview{
