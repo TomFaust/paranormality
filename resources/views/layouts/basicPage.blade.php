@@ -8,23 +8,24 @@
     <body>
 
         <header>
-            <img id="logo" src="">
+            <h1>Paranormality</h1>
         </header>
         <nav>
-
+            <a href="#">test</a>
+            <a href="#">test</a>
+            <a href="#">test</a>
+            <a href="#">test</a>
+            <a href="#">test</a>
+            <a href="#">test</a>
         </nav>
         <main>
-
-            <posts>
                 @yield('content')
-            </posts>
             <profile>
 
+                <profilePicture></profilePicture>
+                <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
+
             </profile>
-            <top>
-
-            </top>
-
         </main>
     </body>
 </html>
