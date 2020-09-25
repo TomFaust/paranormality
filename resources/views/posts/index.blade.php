@@ -2,7 +2,7 @@
 
 @section('content')
     <filters>
-
+        
     </filters>
 
     <posts>
@@ -18,8 +18,21 @@
         @endforeach
     </posts>
 
+    <profile>
+
+        <profilePicture></profilePicture>
+        <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
+
+    </profile>
+
     <top>
 
+
+        @foreach($top as $top)
+            <a href="{{route('news.show',$top['id'])}}">View post</a>
+        @endforeach
     </top>
+
+
 
 @endsection

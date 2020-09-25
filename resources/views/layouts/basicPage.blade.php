@@ -18,16 +18,6 @@
         </nav>
         <main>
                 @yield('content')
-            <profile>
-
-                <profilePicture></profilePicture>
-                <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
-
-            </profile>
-
-            <top>
-
-            </top>
         </main>
     </body>
 </html>

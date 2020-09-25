@@ -13,5 +13,16 @@
         </comments>
     @endif
 
+    <profile>
+
+        <profilePicture></profilePicture>
+        <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
+
+    </profile>
+
+    <top>
+
+    </top>
+
 
 @endsection
