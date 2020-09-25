@@ -11,12 +11,10 @@
             <h1>Paranormality</h1>
         </header>
         <nav>
-            <a href="#">test</a>
-            <a href="#">test</a>
-            <a href="#">test</a>
-            <a href="#">test</a>
-            <a href="#">test</a>
-            <a href="#">test</a>
+            <a href="{{route('index')}}">Home</a>
+            <a href="#">FAQ</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </nav>
         <main>
                 @yield('content')
@@ -26,6 +24,10 @@
                 <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
 
             </profile>
+
+            <top>
+
+            </top>
         </main>
     </body>
 </html>
