@@ -2,7 +2,17 @@
 
 @section('content')
     <filters>
-        
+        <form action="{{ route('posts.filter') }}">
+            <input type="text" name="search">
+            <input type="month" name="month">
+            <select name="categories">
+                <option value="">--Categorie--</option>
+                @foreach($categorie as $categorie)
+                    <option value="{{$categorie['id']}}">{{$categorie['name']}}</option>
+                @endforeach
+            </select>
+            <input type="submit">
+        </form>
     </filters>
 
     <posts>
@@ -26,8 +36,6 @@
     </profile>
 
     <top>
-
-
         @foreach($top as $top)
             <a href="{{route('news.show',$top['id'])}}">View post</a>
         @endforeach
