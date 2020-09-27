@@ -1,15 +1,13 @@
 main{
     position:absolute;
-    top:23vh;
+    top:12vh;
     width:94vw;
     left:3vw;
     min-height: 72vh;
 }
 
 html{
-    background-image: url("../images/background.jpg");
-    background-repeat: repeat;
-    background-size:30%;
+    background-color: #363636;
     padding:0;
     margin:0;
     font-family: "Arial";
@@ -26,16 +24,16 @@ header{
     width:100vw;
     top:0;
     left:0;
-    height:20vh;
+    height:11vh;
     background-color:#4a4a4a;
-    border-bottom: solid white 4px;
 }
 
 header h1{
     color:white;
     position: absolute;
-    left:7vw;
-    padding-top:2vh;
+    left:2vw;
+    padding-top:1vh;
+    font-size:4vh;
 }
 
 a:link {
@@ -43,15 +41,17 @@ a:link {
 }
 
 nav{
-    width:64vw;
+    width:83vw;
     position: absolute;
-    left:0;
-    top:16vh;
+    padding-top:4vh;
+    left:17vw;
+    top:0;
     color:black;
-    height:4vh;
-    padding-left:7vw;
+    height:7vh;
+    padding-left:2vw;
     display:grid;
     grid-template-columns: auto auto auto auto auto auto;
+    background-color:white;
 
 }
 
@@ -66,16 +66,11 @@ posts{
     grid-template-columns: auto;
     grid-auto-rows:20vh;
     grid-gap:1vw;
+    color:white;
 }
 
 
 post{
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#373737+20,4d4d4d+50,373737+80&0+0,0.8+6,1+19,1+81,0.8+92,0+100 */
-    background: -moz-linear-gradient(-45deg,  rgba(55,55,55,0) 0%, rgba(55,55,55,0.8) 6%, rgba(55,55,55,1) 19%, rgba(55,55,55,1) 20%, rgba(77,77,77,1) 50%, rgba(55,55,55,1) 80%, rgba(55,55,55,1) 81%, rgba(55,55,55,0.8) 92%, rgba(55,55,55,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#00373737',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
     display: grid;
     grid-template-columns: 30vh auto;
     grid-template-areas:
@@ -84,13 +79,12 @@ post{
     'img view';
     grid-gap:1vw;
     color:white;
-    border-radius: 1vh;
+    border:solid 2px white;
 }
 
 post img{
-    height:20vh;
+    height:19.3vh;
     grid-area:img;
-    border-radius: 1vh;
 }
 
 post preview{
@@ -184,6 +178,32 @@ filters{
     padding:1vw;
     left:4vw;
     top:3vh;
-    background-color: green;
-    border-radius: 1vw;
+    border-bottom:solid 2px white;
+}
+
+filters input[type=text],filters input[type=month],filters select{
+    width:12vw;
+    height:4vh;
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+create{
+    width:60vw;
+    height:60vh;
+    left:17vw;
+    top:5vh;
+    position:absolute;
+}
+
+create textarea{
+    resize: vertical;
+    height:20vh;
+}
+
+create form{
+    display:grid;
+    grid-template-columns: auto;
+    color:white;
 }

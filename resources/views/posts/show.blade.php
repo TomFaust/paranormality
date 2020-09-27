@@ -5,7 +5,7 @@
     @if($posts)
         <article>
             <h1>{{$posts['title']}}</h1>
-            <img src="{{$posts['image']}}">
+            <img src="../storage/postImages/{{$posts['image']}}">
             <h2>{{$posts['description']}}</h2>
         </article>
         <comments>
