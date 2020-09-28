@@ -16,10 +16,10 @@ class CreateLikesTable extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('post')->unasigned();
+            $table->unsignedBigInteger('post');
             $table->foreign('post')->references('id')->on('posts');
 
-            $table->bigInteger('user')->unasigned();
+            $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users');
 
             $table->timestamps();

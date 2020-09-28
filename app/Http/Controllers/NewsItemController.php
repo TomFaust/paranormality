@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Posts;
 use App\Likes;
 use App\Categorie;
+use Auth;
 
 
 class NewsItemController extends Controller
@@ -59,6 +60,7 @@ class NewsItemController extends Controller
                 $post->title = $request->get('title');
                 $post->description = $request->get('description');
                 $post->category = $request->get('category');
+                $post->postedby = Auth::user()->id;
                 $post->image = $url;
 
                 $post->save();

@@ -44,11 +44,11 @@ nav{
     width:83vw;
     position: absolute;
     padding-top:4vh;
-    left:17vw;
+    left:19vw;
     top:0;
     color:black;
     height:7vh;
-    padding-left:2vw;
+    padding-left:4vw;
     display:grid;
     grid-template-columns: auto auto auto auto auto auto;
     background-color:white;
@@ -72,19 +72,21 @@ posts{
 
 post{
     display: grid;
-    grid-template-columns: 30vh auto;
+    grid-template-columns: 30vh 44vw auto;
     grid-template-areas:
-    'img title'
-    'img preview'
-    'img view';
+    'img title vote'
+    'img preview vote'
+    'img view vote';
     grid-gap:1vw;
     color:white;
-    border:solid 2px white;
+    border-bottom:solid 2px white;
 }
 
-post img{
-    height:19.3vh;
-    grid-area:img;
+post .thumbnail{
+    object-fit: cover;
+    height: 19.3vh;
+    width: 14vw;
+    grid-area: img;
 }
 
 post preview{
@@ -113,11 +115,9 @@ profile{
     height:20vw;
     top:3vh;
     position:absolute;
-    background-color: #4a4a4a;
-    -webkit-border-radius: 1vw;
-    -moz-border-radius: 1vw;
-    border-radius: 1vw;
+    color:white;
 }
+
 
 profilePicture{
     width:10vw;
@@ -136,8 +136,24 @@ actions{
     padding:5%;
     margin-top:82%;
     height:8%;
-    border-radius: 0 0 1vw 1vw;
-    background-color:red
+    border-top:solid white 2px;
+    border-bottom:solid white 2px;
+    text-align: center;
+}
+
+loginMsg{
+    text-align:center;
+    width:100%;
+    position:absolute;
+    top:45%;
+}
+
+.LIactions{
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.LOActions{
+    grid-template-columns: auto auto auto;
 }
 
 
@@ -146,23 +162,40 @@ top{
     left:71vw;
     width:20vw;
     min-height:10vw;
-    top:calc(9vh + 20vw);
+    top:calc(13vh + 20vw);
     position:absolute;
-    background-color: red;
-    -webkit-border-radius: 1vw;
-    -moz-border-radius: 1vw;
-    border-radius: 1vw;
+    color:white;
+
+}
+
+top p:first-child{
+    border-top:solid 2px white;
+    border-bottom:solid 2px white;
+    padding-top:2vh;
+    padding-bottom:2vh;
+    text-align: center;
+    margin:0;
+}
+
+top post{
+    background-size: 100% ;
+    height:10vh;
+}
+
+top post topTitle{
+    padding-top:10%;
+}
+
+top post a{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    color:white;
+    background-color: black;
 }
 
 article{
     width:64vw;
-
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#373737+20,4d4d4d+50,373737+80&0+0,0.8+6,1+19,1+81,0.8+92,0+100 */
-    background: -moz-linear-gradient(-45deg,  rgba(55,55,55,0) 0%, rgba(55,55,55,0.8) 6%, rgba(55,55,55,1) 19%, rgba(55,55,55,1) 20%, rgba(77,77,77,1) 50%, rgba(55,55,55,1) 80%, rgba(55,55,55,1) 81%, rgba(55,55,55,0.8) 92%, rgba(55,55,55,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  rgba(55,55,55,0) 0%,rgba(55,55,55,0.8) 6%,rgba(55,55,55,1) 19%,rgba(55,55,55,1) 20%,rgba(77,77,77,1) 50%,rgba(55,55,55,1) 80%,rgba(55,55,55,1) 81%,rgba(55,55,55,0.8) 92%,rgba(55,55,55,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00373737', endColorstr='#00373737',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
     margin-left:3vw;
 
 }
@@ -172,21 +205,22 @@ article img{
 }
 
 filters{
+
     position:absolute;
-    width:62vw;
-    height:3vh;
-    padding:1vw;
+    width:64vw;
+    height:5vh;
     left:4vw;
-    top:3vh;
+    top:5vh;
     border-bottom:solid 2px white;
 }
 
-filters input[type=text],filters input[type=month],filters select{
-    width:12vw;
+filters input[type=text],filters input[type=month],filters select,filters input[type=submit]{
+    width:24.5%;
     height:4vh;
     padding:0;
     margin:0;
     border:0;
+    outline: none;
 }
 
 create{
@@ -206,4 +240,19 @@ create form{
     display:grid;
     grid-template-columns: auto;
     color:white;
+}
+
+.vote{
+    height:25%;
+    grid-area: vote;
+}
+
+.upvote{
+    transform:rotate(-90deg);
+    margin-top:1vh;
+}
+
+.downvote{
+    transform:rotate(90deg);
+    margin-top:12vh;
 }

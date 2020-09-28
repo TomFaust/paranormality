@@ -19,7 +19,11 @@ Route::get('/', function () {
 
 Route::get('/about','NewsItemController@show')->name('about');
 Route::get('/','NewsItemController@index')->name('index');
-Route::get('posts/create','NewsItemController@create')->name('posts.create');
-Route::post('posts/save','NewsItemController@save')->name('posts.save');
+Route::get('posts/create','NewsItemController@create')->name('posts.create')->middleware('auth');;
+Route::post('posts/save','NewsItemController@save')->name('posts.save')->middleware('auth');;
 Route::get('posts/{id}','NewsItemController@show')->name('news.show');
 Route::get('/filter','NewsItemController@filter')->name('posts.filter');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

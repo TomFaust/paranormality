@@ -1,4 +1,4 @@
-@extends('layouts.basicPage')
+@extends('layouts.master')
 
 @section('content')
 
@@ -13,11 +13,22 @@
         </comments>
     @endif
 
+
     <profile>
-
-        <profilePicture></profilePicture>
-        <actions><a>Make post</a>|<a>Account</a>|<a>Log out</a></actions>
-
+        @if (Auth::check())
+            <profilePicture></profilePicture>
+            <actions class="LIActions"><a href="{{ route('posts.create') }}">Make post</a>|<a>Account</a>|<a class="dropdown-item" href="{{ route('logout') }}"
+                                                                                                             onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a></actions>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        @else
+            <loginMsg>You are not logged in.</loginMsg>
+            <actions class="LOActions"><a href="{{ route('login') }}">Log in</a>|<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></actions>
+        @endif
     </profile>
 
     <top>
