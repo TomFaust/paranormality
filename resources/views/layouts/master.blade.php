@@ -4,6 +4,8 @@
         <title>Paranormality</title>
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
         <link rel="icon" type="image/png" href="{{asset('images/icon.ico')}}">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
     </head>
     <body>
 
@@ -19,5 +21,7 @@
         <main>
                 @yield('content')
         </main>
+        <script src="{{asset('js/ajax-request.js')}}"></script>
     </body>
+
 </html>

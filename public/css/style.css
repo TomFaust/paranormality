@@ -1,9 +1,9 @@
 main{
     position:absolute;
-    top:12vh;
+    top:6vh;
     width:94vw;
     left:3vw;
-    min-height: 72vh;
+    color:white;
 }
 
 html{
@@ -24,7 +24,7 @@ header{
     width:100vw;
     top:0;
     left:0;
-    height:11vh;
+    height:7vh;
     background-color:#4a4a4a;
 }
 
@@ -32,7 +32,8 @@ header h1{
     color:white;
     position: absolute;
     left:2vw;
-    padding-top:1vh;
+    margin-top:1vh;
+    margin-left:-2vh;
     font-size:4vh;
 }
 
@@ -43,12 +44,12 @@ a:link {
 nav{
     width:83vw;
     position: absolute;
-    padding-top:4vh;
-    left:19vw;
+    padding-top:2vh;
+    left:15vw;
     top:0;
     color:black;
-    height:7vh;
-    padding-left:4vw;
+    height:5vh;
+    padding-left:3vw;
     display:grid;
     grid-template-columns: auto auto auto auto auto auto;
     background-color:white;
@@ -60,31 +61,50 @@ posts{
     width:64vw;
     padding:1vw;
     left:3vw;
-    top:10.5vh;
-    min-height:49vw;
+    top:15.5vh;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows:20vh;
     grid-gap:1vw;
     color:white;
+    padding-bottom:10vh;
 }
 
 
 post{
     display: grid;
-    grid-template-columns: 30vh 44vw auto;
+    grid-template-columns: 3.5vw 33vh auto ;
     grid-template-areas:
-    'img title vote'
-    'img preview vote'
-    'img view vote';
-    grid-gap:1vw;
+    'vote img title'
+    'vote img preview '
+    'vote img view ';
     color:white;
-    border-bottom:solid 2px white;
+    border:solid 1px white;
 }
+
+vote{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: 60%;
+    grid-area:vote;
+    height:100%;
+    width:100%;
+    background-color: #1c1c1c;
+}
+
+vote img{
+    padding-left:0.75vw;
+    margin-top:1vh;
+    cursor:pointer;
+    height: 4vh;
+    align-self: flex-end;
+}
+
+
 
 post .thumbnail{
     object-fit: cover;
-    height: 19.3vh;
+    height: 100%;
     width: 14vw;
     grid-area: img;
 }
@@ -96,7 +116,6 @@ post preview{
     -webkit-box-orient: vertical;
     height:2.5rem;
     overflow:hidden;
-    width:90%;
 }
 
 post postTitle{
@@ -242,17 +261,23 @@ create form{
     color:white;
 }
 
-.vote{
-    height:25%;
-    grid-area: vote;
+likes{
+    width:100%;
+    text-align:center;
+    display:block;
 }
 
-.upvote{
-    transform:rotate(-90deg);
-    margin-top:1vh;
+pagenav{
+    width:64vw;
+    left:4vw;
+    position:absolute;
+    text-align:center;
+    top:12vh;
+    height: 7vh;
 }
 
-.downvote{
-    transform:rotate(90deg);
-    margin-top:12vh;
+vote input[type=image]{
+    width:60%;
+    margin-left:20%;
+    margin-top:90%;
 }

@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about','NewsItemController@show')->name('about');
-Route::get('/','NewsItemController@index')->name('index');
+Route::get( '/','NewsItemController@index')->name('index');
+Route::post('/', 'AjaxController@store');
 Route::get('posts/create','NewsItemController@create')->name('posts.create')->middleware('auth');;
 Route::post('posts/save','NewsItemController@save')->name('posts.save')->middleware('auth');;
 Route::get('posts/{id}','NewsItemController@show')->name('news.show');
@@ -26,4 +27,6 @@ Route::get('/filter','NewsItemController@filter')->name('posts.filter');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('ajax-request', 'AjaxController@create');
+Route::post('ajax-request', 'AjaxController@store');
+

@@ -12,7 +12,18 @@ use Auth;
 class NewsItemController extends Controller
 {
     public function index(){
-        $posts = Posts::orderBy('created_at','desc')->get();
+
+        $posts = Posts::orderBy('posts.created_at','desc')
+            ->take(10)
+            ->get();
+
+        $likes = Likes::select('id','post')
+            ->addSelect(Likes::raw('count(*) as likes_of_post'))
+            ->groupBy('post')
+            ->take(10)
+            ->get()
+            ->toArray();
+
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))
             ->from('likes')
@@ -22,11 +33,47 @@ class NewsItemController extends Controller
             ->orderByRaw('likes_of_post DESC')
             ->limit(5)
             ->get();
+
         $categorie = Categorie::all();
+
+        $pages = ceil(Posts::all()->count() / 10);
+
+        $current = 1;
+        $range = 2;
+
+        $min = $current - $range;
+        if($min < 1){
+            $remain = abs($min);
+
+            if($remain == 0){
+                $remain = 1;
+            }elseif ($remain == 1){
+                $remain = 2;
+            }
+
+
+            $min = 1;
+        }else{
+            $remain = 0;
+        }
+
+        $max = $current + $range + $remain;
+
+        if($max > $pages){
+            $min = $min - ($max - $pages);
+            $max = $pages;
+        }
+
+
         return view('posts.index',[
             'posts' => $posts,
             'top' => $top,
-            'categorie' => $categorie
+            'categorie' => $categorie,
+            'min'=>$min,
+            'max'=>$max,
+            'current'=>$current,
+            'pages'=>$pages,
+            'likes'=>$likes
         ]);
     }
 
@@ -87,12 +134,23 @@ class NewsItemController extends Controller
 
     public function filter(Request $request){
 
+        $goto = ($request->get('page') - 1) * 10;
+
         $posts = Posts::select('*')
             ->where('title','LIKE','%'.$request->get('search').'%')
             ->where('category','LIKE',$request->get('categories'))
             ->where(Posts::raw('SUBSTRING(created_at,1,7)'),'LIKE',$request->get('month'))
             ->orderBy('created_at','desc')
+            ->skip($goto)->take(10)
             ->get();
+
+        $likes = Likes::select('id','post')
+            ->addSelect(Likes::raw('count(*) as likes_of_post'))
+            ->groupBy('post')
+            ->skip($goto)->take(10)
+            ->get()
+            ->toArray();
+
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))
             ->from('likes')
@@ -102,13 +160,62 @@ class NewsItemController extends Controller
             ->orderByRaw('likes_of_post DESC')
             ->limit(5)
             ->get();
+
         $categorie = Categorie::all();
+
+        $found = Posts::select('*')
+            ->where('title','LIKE','%'.$request->get('search').'%')
+            ->where('category','LIKE',$request->get('categories'))
+            ->where(Posts::raw('SUBSTRING(created_at,1,7)'),'LIKE',$request->get('month'))
+            ->count();
+
+        $pages = ceil($found / 10);
+
+        $current = $request->get('page');
+        if($current == 0){
+            $current = 1;
+        }
+
+        $range = 2;
+
+        $min = $current - $range;
+        if($min < 1){
+            $remain = abs($min);
+
+            if($remain == 0){
+                $remain = 1;
+            }elseif ($remain == 1){
+                $remain = 2;
+            }
+
+            $min = 1;
+
+        }else{
+            $remain = 0;
+        }
+
+        $max = $current + $range + $remain;
+
+        if($max > $pages){
+            $min = $min - ($max - $pages);
+            $max = $pages;
+        }
+
+        if($min < 1){
+            $min = 1;
+        }
+
+
         return view('posts.index',[
             'posts' => $posts,
             'top' => $top,
-            'categorie' => $categorie
+            'categorie' => $categorie,
+            'min'=>$min,
+            'max'=>$max,
+            'current'=>$current,
+            'pages'=>$pages,
+            'likes'=>$likes
         ]);
     }
-
 
 }
