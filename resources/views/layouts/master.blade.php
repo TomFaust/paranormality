@@ -21,7 +21,7 @@
         <main>
                 @yield('content')
         </main>
-        <script src="{{asset('js/ajax-request.js')}}"></script>
+        <script src="{{asset('js/json-request.js')}}"></script>
     </body>
 
 </html>

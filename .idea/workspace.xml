@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e56a86f4-d806-40ed-b02f-3b492b291647" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/ajax-request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/logform.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/json-request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ajax-request.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,20 +26,8 @@
       <file leaf-file-name="NewsItemController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="165" column="35" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="35" />
-              <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AjaxController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            <state relative-caret-position="354">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -51,10 +38,11 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="405">
+              <caret line="88" column="47" lean-forward="true" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
               <folding>
-                <element signature="e#4189#4259#0#HTML" expanded="true" />
+                <element signature="e#2742#2847#0#HTML" expanded="true" />
+                <element signature="e#2885#2958#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,17 +51,17 @@
       <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="63" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="63" />
+            <state relative-caret-position="272">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax-request.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/ajax-request.js">
+      <file leaf-file-name="json-request.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/json-request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="408">
+              <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -98,10 +86,13 @@
       <find>main</find>
       <find>filter</find>
       <find>save-data</find>
-      <find>vote</find>
       <find>form</find>
       <find>like</find>
       <find>count</find>
+      <find>found</find>
+      <find>filt</find>
+      <find>vote</find>
+      <find>nav</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\testLaravel</dir>
@@ -123,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/views/layouts/css/style.css" />
         <option value="$PROJECT_DIR$/app/NewsItem.php" />
         <option value="$PROJECT_DIR$/resources/views/news-items/index.blade.php" />
@@ -145,7 +135,6 @@
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/resources/views/posts/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_09_25_165346_create_likes_table.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
@@ -165,15 +154,17 @@
         <option value="$PROJECT_DIR$/resources/js/ajaxLike.js" />
         <option value="$PROJECT_DIR$/resources/views/message.blade.php" />
         <option value="$PROJECT_DIR$/public/js/ajaxRequest.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php" />
         <option value="$PROJECT_DIR$/resources/js/ajax-request.js" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ajax-request.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" />
-        <option value="$PROJECT_DIR$/resources/views/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/public/js/ajax-request.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php" />
+        <option value="$PROJECT_DIR$/resources/views/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/json-request.js" />
       </list>
     </option>
   </component>
@@ -310,7 +301,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,6 +333,17 @@
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testLaravel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testLaravel" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testLaravel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testLaravel" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testLaravel" type="b2602c69:ProjectViewProjectNode" />
@@ -401,6 +402,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -414,13 +416,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\testLaravel\public\postImages" />
-      <recent name="C:\xampp\htdocs\testLaravel\resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\testLaravel\public\js" />
       <recent name="C:\xampp\htdocs\testLaravel\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\testLaravel\public\postImages" />
+      <recent name="C:\xampp\htdocs\testLaravel\resources\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -458,7 +460,12 @@
       <workItem from="1601277974208" duration="27044000" />
       <workItem from="1601362601758" duration="29637000" />
       <workItem from="1601651186030" duration="7357000" />
-      <workItem from="1601725382368" duration="8630000" />
+      <workItem from="1601725382368" duration="9255000" />
+      <workItem from="1601767945409" duration="244000" />
+      <workItem from="1601886318011" duration="4432000" />
+      <workItem from="1601978639397" duration="7432000" />
+      <workItem from="1602080684964" duration="5546000" />
+      <workItem from="1602344350853" duration="12780000" />
     </task>
     <task id="LOCAL-00001" summary="home page layout (wip)">
       <created>1600278589497</created>
@@ -523,11 +530,18 @@
       <option name="project" value="LOCAL" />
       <updated>1601324764365</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="liking is possible, results separated into pages">
+      <created>1601767055905</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601767055905</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175959000" />
+    <option name="totallyTimeSpent" value="207018000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -539,7 +553,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="npm" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.106529206" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.104811" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34738487" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -548,12 +562,12 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="0" weight="0.09965636" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.13745704" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="0" weight="0.09965636" />
+      <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3298969" />
     </layout>
   </component>
@@ -573,20 +587,15 @@
     <MESSAGE value="posts can be filtered" />
     <MESSAGE value="posts can be posted, images are saved in public" />
     <MESSAGE value="login,register, logout, and users posting are functional, filter options stay. auth prevents acces to posting if not logged in" />
-    <option name="LAST_COMMIT_MESSAGE" value="login,register, logout, and users posting are functional, filter options stay. auth prevents acces to posting if not logged in" />
+    <MESSAGE value="liking is possible, results separated into pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="liking is possible, results separated into pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/storage/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/storage/postImages/sample header27-09-2020.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -608,13 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -706,9 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,13 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/posts/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -794,74 +786,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/message.blade.php" />
     <entry file="file://$PROJECT_DIR$/public/js/ajaxRequest.js" />
-    <entry file="file://$PROJECT_DIR$/resources/views/ajax-request.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/resources/views/ajax-request.blade.php" />
+    <entry file="file://$PROJECT_DIR$/app/Likes.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/posts/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="30" selection-start-line="30" selection-end-line="30" selection-end-column="52" />
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="281" column="10" selection-start-line="281" selection-start-column="10" selection-end-line="281" selection-end-column="10" />
+        <state relative-caret-position="4811">
+          <caret line="283" column="10" selection-start-line="283" selection-start-column="10" selection-end-line="283" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Likes.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_09_21_122136_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Posts.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php">
+    <entry file="file://$PROJECT_DIR$/public/js/ajax-request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="165" column="35" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="35" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="319">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="63" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="63" />
+        <state relative-caret-position="272">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NewsItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/posts/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="405">
+          <caret line="88" column="47" lean-forward="true" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
           <folding>
-            <element signature="e#4189#4259#0#HTML" expanded="true" />
+            <element signature="e#2742#2847#0#HTML" expanded="true" />
+            <element signature="e#2885#2958#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/ajax-request.js">
+    <entry file="file://$PROJECT_DIR$/public/js/json-request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state relative-caret-position="408">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
         </state>
       </provider>
     </entry>

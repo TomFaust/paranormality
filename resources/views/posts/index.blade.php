@@ -17,8 +17,10 @@
                     >{{$categorie['name']}}</option>
                 @endforeach
             </select>
-            <input type="submit">
+            <input type="submit" value="Search">
+            <input type="reset" value="Clear">
         </filters>
+
         <pagenav>
             @if($current - 1 < $min)
                 <button name="page" value="{{$min}}"> < </button>
@@ -49,7 +51,10 @@
 
     <posts>
 
-        @if($posts->isEmpty())
+
+
+
+        @if(empty($posts))
 
             <p>There were no posts found matching your criteria...</p>
 
@@ -64,24 +69,29 @@
 
                     <vote>
                         @if(Auth::id() == NULL)
+                            <input id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" disabled>
 
+                                    <likesid="likes{{$posts['id']}}">
+                                        {{$posts['likes_of_post']}}
+                                    </likes>
                         @else
+                            <input
+                                    @if(array_search($posts['id'],$iLiked))
 
-                            <form>
-                                <input class="save-data" id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" >
-                                @csrf
+                                    style="filter:grayscale(0%)"
 
-                                    @for($i=0;$i<count($likes);$i++)
-                                        @if($posts['id'] == $likes[$i]['post'])
-                                        <likes id="likes{{$posts['id']}}">
-                                            {{$likes[$i]['likes_of_post']}}
-                                        </likes>
-                                        @endif
-                                    @endfor
+                                    @else
 
-                                <input type="hidden" name="post{{$posts['id']}}" value="{{$posts['id']}}"/>
-                                <input type="hidden" name="user{{$posts['id']}}" value="{{Auth::id()}}"/>
-                            </form>
+                                    style="filter:grayscale(100%)"
+
+                                    @endif
+
+                                    onclick="sendJSON()" id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" >
+                            @csrf
+
+                            <likes id="likes{{$posts['id']}}">
+                                {{$posts['likes_of_post']}}
+                            </likes>
 
                         @endif
 

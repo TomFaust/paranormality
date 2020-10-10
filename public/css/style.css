@@ -25,16 +25,17 @@ header{
     top:0;
     left:0;
     height:7vh;
-    background-color:#4a4a4a;
+    background-color: #262626;
+    border-bottom:solid 1px white;
 }
 
 header h1{
     color:white;
     position: absolute;
     left:2vw;
-    margin-top:1vh;
+    margin-top:2vh;
     margin-left:-2vh;
-    font-size:4vh;
+    font-size:3vh;
 }
 
 a:link {
@@ -52,15 +53,17 @@ nav{
     padding-left:3vw;
     display:grid;
     grid-template-columns: auto auto auto auto auto auto;
-    background-color:white;
+    background-color: #262626;
+    color:white;
+    border-bottom:solid 1px white;
 
 }
 
 posts{
     position:absolute;
-    width:64vw;
+    width:60vw;
     padding:1vw;
-    left:3vw;
+    left:7vw;
     top:15.5vh;
     display: grid;
     grid-template-columns: auto;
@@ -80,6 +83,8 @@ post{
     'vote img view ';
     color:white;
     border:solid 1px white;
+    background-color: #262626;
+    border-radius:1vh;
 }
 
 vote{
@@ -90,6 +95,7 @@ vote{
     height:100%;
     width:100%;
     background-color: #1c1c1c;
+    border-radius:1vh 0vh 0vh 1vh;
 }
 
 vote img{
@@ -132,9 +138,11 @@ profile{
     left:71vw;
     width:20vw;
     height:20vw;
-    top:3vh;
+    top:calc(15.5vh + 1vw);
     position:absolute;
     color:white;
+    border:solid 1px white;
+    border-radius: 1vh;
 }
 
 
@@ -155,8 +163,6 @@ actions{
     padding:5%;
     margin-top:82%;
     height:8%;
-    border-top:solid white 2px;
-    border-bottom:solid white 2px;
     text-align: center;
 }
 
@@ -181,15 +187,15 @@ top{
     left:71vw;
     width:20vw;
     min-height:10vw;
-    top:calc(13vh + 20vw);
+    top:65.5vh;
     position:absolute;
     color:white;
 
 }
 
 top p:first-child{
-    border-top:solid 2px white;
-    border-bottom:solid 2px white;
+    border:solid 1px white;
+    border-radius: 1vh 1vh 0 0;
     padding-top:2vh;
     padding-bottom:2vh;
     text-align: center;
@@ -226,16 +232,22 @@ article img{
 filters{
 
     position:absolute;
-    width:64vw;
+    width:60vw;
     height:5vh;
-    left:4vw;
+    left:8vw;
     top:5vh;
-    border-bottom:solid 2px white;
+    border:solid 1px white;
+    border-radius:1vh;
+
 }
 
-filters input[type=text],filters input[type=month],filters select,filters input[type=submit]{
-    width:24.5%;
-    height:4vh;
+filters *{
+    float:left;
+}
+
+filters input, filters select{
+    width:20%;
+    height:100%;
     padding:0;
     margin:0;
     border:0;
@@ -268,8 +280,8 @@ likes{
 }
 
 pagenav{
-    width:64vw;
-    left:4vw;
+    width:60vw;
+    left:8vw;
     position:absolute;
     text-align:center;
     top:12vh;
@@ -280,4 +292,5 @@ vote input[type=image]{
     width:60%;
     margin-left:20%;
     margin-top:90%;
+    filter:grayscale(100%);
 }

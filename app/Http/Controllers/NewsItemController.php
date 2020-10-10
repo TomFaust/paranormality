@@ -13,16 +13,23 @@ class NewsItemController extends Controller
 {
     public function index(){
 
-        $posts = Posts::orderBy('posts.created_at','desc')
-            ->take(10)
-            ->get();
-
-        $likes = Likes::select('id','post')
-            ->addSelect(Likes::raw('count(*) as likes_of_post'))
-            ->groupBy('post')
+        $posts = Posts::Select('posts.id','posts.title','posts.image','posts.description')
+            ->addSelect(Posts::raw('count(likes.id) as likes_of_post'))
+            ->orderBy('posts.created_at','desc')
+            ->leftJoin('likes','likes.post','=','posts.id')
+            ->groupBy('posts.id')
             ->take(10)
             ->get()
             ->toArray();
+
+        $iLiked = Likes::Select('post')
+            ->Where('user','=',Auth::id())
+            ->get()
+            ->toArray();
+
+        $iLiked = array_column($iLiked,'post');
+
+
 
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))
@@ -73,7 +80,7 @@ class NewsItemController extends Controller
             'max'=>$max,
             'current'=>$current,
             'pages'=>$pages,
-            'likes'=>$likes
+            'iLiked'=>$iLiked
         ]);
     }
 
@@ -136,20 +143,19 @@ class NewsItemController extends Controller
 
         $goto = ($request->get('page') - 1) * 10;
 
-        $posts = Posts::select('*')
+        $posts = Posts::Select('posts.id','posts.title','posts.image','posts.description')
+            ->addSelect(Posts::raw('count(likes.id) as likes_of_post'))
+            ->orderBy('posts.created_at','desc')
+            ->leftJoin('likes','likes.post','=','posts.id')
             ->where('title','LIKE','%'.$request->get('search').'%')
             ->where('category','LIKE',$request->get('categories'))
-            ->where(Posts::raw('SUBSTRING(created_at,1,7)'),'LIKE',$request->get('month'))
-            ->orderBy('created_at','desc')
-            ->skip($goto)->take(10)
-            ->get();
-
-        $likes = Likes::select('id','post')
-            ->addSelect(Likes::raw('count(*) as likes_of_post'))
-            ->groupBy('post')
+            ->where(Posts::raw('SUBSTRING(posts.created_at,1,7)'),'LIKE',$request->get('month'))
+            ->groupBy('posts.id')
+            ->orderBy('posts.created_at','desc')
             ->skip($goto)->take(10)
             ->get()
             ->toArray();
+
 
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))
@@ -214,7 +220,6 @@ class NewsItemController extends Controller
             'max'=>$max,
             'current'=>$current,
             'pages'=>$pages,
-            'likes'=>$likes
         ]);
     }
 
