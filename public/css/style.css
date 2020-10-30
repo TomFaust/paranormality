@@ -1,8 +1,6 @@
 main{
     position:absolute;
     top:6vh;
-    width:94vw;
-    left:3vw;
     color:white;
 }
 
@@ -48,7 +46,6 @@ nav{
     padding-top:2vh;
     left:15vw;
     top:0;
-    color:black;
     height:5vh;
     padding-left:3vw;
     display:grid;
@@ -62,15 +59,13 @@ nav{
 posts{
     position:absolute;
     width:60vw;
-    padding:1vw;
-    left:7vw;
-    top:15.5vh;
+    left:8vw;
+    top:17vh;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows:20vh;
     grid-gap:1vw;
     color:white;
-    padding-bottom:10vh;
 }
 
 
@@ -128,6 +123,11 @@ post postTitle{
     font-weight: bold;
     width:100%;
     grid-area:title;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    height:1.25rem;
+    overflow:hidden;
 }
 
 post a{
@@ -137,23 +137,27 @@ post a{
 profile{
     left:71vw;
     width:20vw;
-    height:20vw;
-    top:calc(15.5vh + 1vw);
+    height:calc(40vh + 1vw);
+    top:17vh;
     position:absolute;
     color:white;
     border:solid 1px white;
     border-radius: 1vh;
+    background-color: #262626;
 }
 
 
 profilePicture{
+    margin-top:5vh;
     width:10vw;
     height:10vw;
-    top:3vw;
-    left:5vw;
-    background-color:blue;
-    position:absolute;
+    background-image:url('../images/ghosted.jpg');
+    background-position: center;
+    background-size: cover;
     border-radius:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 actions{
@@ -161,7 +165,8 @@ actions{
     grid-template-columns: auto auto auto auto auto;
     width:90%;
     padding:5%;
-    margin-top:82%;
+    bottom:0;
+    position:absolute;
     height:8%;
     text-align: center;
 }
@@ -186,11 +191,12 @@ loginMsg{
 top{
     left:71vw;
     width:20vw;
-    min-height:10vw;
-    top:65.5vh;
+    top:calc(57vh + 2vw);
     position:absolute;
     color:white;
-
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #262626;
 }
 
 top p:first-child{
@@ -202,27 +208,40 @@ top p:first-child{
     margin:0;
 }
 
-top post{
+topPost{
     background-size: 100% ;
     height:10vh;
+    width:calc(100% - 2px);
+    border:solid 1px white;
 }
 
-top post topTitle{
+topPost topTitle{
     padding-top:10%;
 }
 
-top post a{
+topPost a{
     position: absolute;
     width:100%;
     text-align: center;
     color:white;
     background-color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height:1.25rem;
+    overflow:hidden;
 }
 
 article{
-    width:64vw;
+    width:58vw;
     margin-left:3vw;
-
+    border:solid 1px white;
+    border-radius:1vh;
+    top:17vh;
+    background-color: #262626;
+    position:absolute;
+    padding-left:3vw;
+    padding-right:3vw;
 }
 
 article img{
@@ -254,12 +273,19 @@ filters input, filters select{
     outline: none;
 }
 
-create{
-    width:60vw;
-    height:60vh;
-    left:17vw;
-    top:5vh;
-    position:absolute;
+create {
+    width: 55vw;
+    left:7vw;
+    top: 17vh;
+    position: absolute;
+
+    border: solid 1px white;
+    border-radius: 1vh;
+    background-color: #262626;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 2vw;
+    padding-top: 1vw;
 }
 
 create textarea{
@@ -271,6 +297,15 @@ create form{
     display:grid;
     grid-template-columns: auto;
     color:white;
+}
+
+create select{
+    margin-bottom:1.5em;
+}
+
+create p{
+    text-align: center;
+    padding-top:1vh;
 }
 
 likes{
@@ -293,4 +328,167 @@ vote input[type=image]{
     margin-left:20%;
     margin-top:90%;
     filter:grayscale(100%);
+}
+
+login,register{
+    position:absolute;
+    padding:2vw;
+    top:17vh;
+    background-color: #262626;
+    border-radius: 1vh;
+    border:solid 1px white;
+    width:15vw;
+    left:42.5vw;
+}
+
+pages, section{
+    position:absolute;
+    background-color: #262626;
+    border-radius: 1vh;
+    border:solid 1px white;
+}
+
+pages{
+    top:10vh;
+    width:40vw;
+    height:7vh;
+    left: 30vw;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-rows:5vh;
+    text-align:center;
+    grid-row-gap: 1vh;
+}
+
+pages a {
+    margin-top:2vh;
+}
+
+section{
+    top:19vh;
+    width:40vw;
+    min-height:30vh;
+    left:30vw;
+}
+
+section p, section h1{
+    text-align:center;
+}
+
+#posts{
+    display:grid;
+    grid-template-columns: 85% 15%;
+    grid-row-gap: 3vh;
+}
+
+#posts mutate{
+    color:white;
+    border:solid 1px white;
+    background-color: #262626;
+    border-radius:1vh;
+    display:grid;
+    grid-template-columns: auto;
+    padding-left:20%;
+}
+
+#posts mutate *{
+    cursor:pointer;
+}
+
+myPost{
+    width:100%;
+    height:15vh;
+    border-radius: 1vh;
+    border:solid 1px white;
+    background-size: cover;
+}
+
+myPost a{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 1.25rem;
+    overflow: hidden;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#edit{
+    display:grid;
+    grid-template-columns: 100%;
+}
+
+#edit textarea{
+    resize: vertical;
+}
+
+#edit img{
+    width:100%;
+
+}
+
+#mutate{
+    margin-bottom: 20vh;
 }

@@ -5,7 +5,7 @@ function sendJSON() {
     let csrf = document.querySelector('meta[name="csrf-token"]').content;
 
     let xhr = new XMLHttpRequest();
-    let url = "/ajax-request";
+    let url = "/json-request";
 
     xhr.open("POST", url, true);
 
@@ -28,13 +28,66 @@ function sendJSON() {
     }
 
     document.getElementById("likes" + id).innerHTML = likes;
+}
 
+function setActive() {
 
+    let id = event.target.id
+    let csrf = document.querySelector('meta[name="csrf-token"]').content;
 
+    console.log(id)
 
+    let xhr = new XMLHttpRequest();
+    let url = "/set-active";
 
+    xhr.open("POST", url, true);
 
+    xhr.setRequestHeader("Content-Type", "application/json");
 
+    var data = JSON.stringify({ "post": id,"_token": csrf });
 
+    xhr.send(data);
 
+}
+
+function deletePost() {
+
+    let c = confirm("Are you sure you want to delte this post?")
+
+    if(c == true) {
+
+        let id = event.target.id
+        let csrf = document.querySelector('meta[name="csrf-token"]').content;
+
+        console.log(id)
+
+        let xhr = new XMLHttpRequest();
+        let url = "/delete-post";
+
+        xhr.open("POST", url, true);
+
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({"post": id, "_token": csrf});
+
+        xhr.send(data);
+
+        location.reload();
+    }
+}
+
+function previewFile() {
+    var preview = document.querySelector('img');
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+    }
 }

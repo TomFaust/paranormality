@@ -11,12 +11,14 @@ use Auth;
 
 class NewsItemController extends Controller
 {
+
     public function index(){
 
         $posts = Posts::Select('posts.id','posts.title','posts.image','posts.description')
             ->addSelect(Posts::raw('count(likes.id) as likes_of_post'))
             ->orderBy('posts.created_at','desc')
             ->leftJoin('likes','likes.post','=','posts.id')
+            ->where('active',1)
             ->groupBy('posts.id')
             ->take(10)
             ->get()
@@ -36,6 +38,7 @@ class NewsItemController extends Controller
             ->from('likes')
             ->join('posts','posts.id','=','likes.post')
             ->whereMonth('posts.created_at', '=', date('n'))
+            ->where('active',1)
             ->groupBy('likes.post')
             ->orderByRaw('likes_of_post DESC')
             ->limit(5)
@@ -43,7 +46,7 @@ class NewsItemController extends Controller
 
         $categorie = Categorie::all();
 
-        $pages = ceil(Posts::all()->count() / 10);
+        $pages = ceil(Posts::all()->where('active',1)->count() / 10);
 
         $current = 1;
         $range = 2;
@@ -75,7 +78,7 @@ class NewsItemController extends Controller
         return view('posts.index',[
             'posts' => $posts,
             'top' => $top,
-            'categorie' => $categorie,
+                'categorie' => $categorie,
             'min'=>$min,
             'max'=>$max,
             'current'=>$current,
@@ -86,27 +89,28 @@ class NewsItemController extends Controller
 
     public function create(){
         $categorie = Categorie::all();
-        return view('posts.create',['categorie' => $categorie]);
+
+        $iLiked = Likes::Select('post')
+            ->Where('user','=',Auth::id())
+            ->get()
+            ->toArray();
+
+        return view('posts.create',[
+            'categorie' => $categorie,
+            'iLiked' => $iLiked
+        ]);
     }
 
     public function save(Request $request){
 
-        if ($request->hasFile('image')) {
-            //  Let's do everything here
-            if ($request->file('image')->isValid()) {
-
-                $validated = $request->validate([
+                $validator = $request->validate([
                     'title' => 'required',
                     'description' => 'required',
-                    'image' => 'max:1024',
+                    'image' => 'mimes:jpeg,png',
                     'category' => ['exists:categories,id']
                 ]);
 
-                //$imageName = $validated['title'] . date('d-m-Y H:i:s:u');
-
-                //$extension = $request->image->extension();
                 $path = $request->file('image')->storePublicly('/public/postImages');
-
 
                 $url = basename($path);
 
@@ -120,22 +124,31 @@ class NewsItemController extends Controller
                 $post->save();
 
                 return redirect('');
-            }
-        }else{
-            abort(404, 'pagina niet gevonder');
-        }
+
     }
+
 
     public function show($id)
     {
         $posts = Posts::find($id);
+
+        $top = Likes::select('posts.id','posts.image','posts.title')
+            ->addSelect(Likes::raw('count(*) as likes_of_post'))
+            ->from('likes')
+            ->join('posts','posts.id','=','likes.post')
+            ->whereMonth('posts.created_at', '=', date('n'))
+            ->groupBy('likes.post')
+            ->orderByRaw('likes_of_post DESC')
+            ->limit(5)
+            ->get();
 
         if($posts === null) {
             abort(404, 'pagina niet gevonder');
         }
 
         return view('posts.show',[
-            'posts' => $posts
+            'posts' => $posts,
+            'top' => $top,
         ]);
     }
 
@@ -150,6 +163,7 @@ class NewsItemController extends Controller
             ->where('title','LIKE','%'.$request->get('search').'%')
             ->where('category','LIKE',$request->get('categories'))
             ->where(Posts::raw('SUBSTRING(posts.created_at,1,7)'),'LIKE',$request->get('month'))
+            ->where('active',1)
             ->groupBy('posts.id')
             ->orderBy('posts.created_at','desc')
             ->skip($goto)->take(10)
@@ -162,6 +176,7 @@ class NewsItemController extends Controller
             ->from('likes')
             ->join('posts','posts.id','=','likes.post')
             ->whereMonth('posts.created_at', '=', date('n'))
+            ->where('active',1)
             ->groupBy('likes.post')
             ->orderByRaw('likes_of_post DESC')
             ->limit(5)
@@ -173,6 +188,7 @@ class NewsItemController extends Controller
             ->where('title','LIKE','%'.$request->get('search').'%')
             ->where('category','LIKE',$request->get('categories'))
             ->where(Posts::raw('SUBSTRING(created_at,1,7)'),'LIKE',$request->get('month'))
+            ->where('active',1)
             ->count();
 
         $pages = ceil($found / 10);
@@ -211,6 +227,14 @@ class NewsItemController extends Controller
             $min = 1;
         }
 
+        $iLiked = Likes::Select('post')
+            ->Where('user','=',Auth::id())
+            ->get()
+            ->toArray();
+
+        $iLiked = array_column($iLiked,'post');
+
+
 
         return view('posts.index',[
             'posts' => $posts,
@@ -220,6 +244,7 @@ class NewsItemController extends Controller
             'max'=>$max,
             'current'=>$current,
             'pages'=>$pages,
+            'iLiked'=>$iLiked
         ]);
     }
 

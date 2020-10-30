@@ -52,8 +52,6 @@
     <posts>
 
 
-
-
         @if(empty($posts))
 
             <p>There were no posts found matching your criteria...</p>
@@ -63,19 +61,19 @@
                 <post>
 
                     <img class="thumbnail" src="storage/postImages/{{$posts['image']}}">
-                    <postTitle>{{$posts['title']}}</postTitle><br>
+                    <postTitle>{{$posts['title']}}</postTitle>
                     <preview>{{$posts['description']}}</preview>
                     <a href="{{route('news.show',$posts['id'])}}">View post</a>
 
                     <vote>
                         @if(Auth::id() == NULL)
-                            <input id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" disabled>
+                            <image id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" disabled>
 
-                                    <likesid="likes{{$posts['id']}}">
+                                    <likes id="likes{{$posts['id']}}">
                                         {{$posts['likes_of_post']}}
                                     </likes>
                         @else
-                            <input
+                            <img
                                     @if(array_search($posts['id'],$iLiked))
 
                                     style="filter:grayscale(0%)"
@@ -86,7 +84,7 @@
 
                                     @endif
 
-                                    onclick="sendJSON()" id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" >
+                                    onclick="sendJSON()" id="{{$posts['id']}}" src="{{asset('images/like.png')}}" >
                             @csrf
 
                             <likes id="likes{{$posts['id']}}">
@@ -111,12 +109,19 @@
                 <actions class="LIActions">
                     <a href="{{ route('posts.create') }}">Make post</a>
                     |
-                    <a>Account</a>
+                    <a href="{{ route('user.account') }}">Account</a>
                     |
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
                 </actions>
+
+                @if(Auth::user()->admin == 1)
+
+                    <a href="{{ route('posts.create') }}">Admin</a>
+
+                @endif
+
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
@@ -129,9 +134,9 @@
     <top>
         <p>Top posts of <?php echo date('F') ?></p>
         @foreach($top as $top)
-            <post style="background-image: url('storage/postImages/{{$top['image']}}');">
+            <topPost style="background-image: url('storage/postImages/{{$top['image']}}');">
                 <a href="{{route('news.show',$top['id'])}}">{{$top['title']}}</a>
-            </post>
+            </topPost>
 
         @endforeach
     </top>
