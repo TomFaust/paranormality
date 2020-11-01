@@ -21,6 +21,15 @@
             <input type="reset" value="Clear">
         </filters>
 
+        <sort>
+            <select name="sort" onchange="this.form.submit()">
+                <option value="latest">Latest</option>
+                <option value="earliest">Earliest</option>
+                <option value="likes+">Most liked</option>
+                <option value="likes-">Least liked</option>
+            </select>
+        </sort>
+
         <pagenav>
             @if($current - 1 < $min)
                 <button name="page" value="{{$min}}"> < </button>
@@ -117,10 +126,11 @@
                 </actions>
 
                 @if(Auth::user()->admin == 1)
-
-                    <a href="{{ route('posts.create') }}">Admin</a>
-
+                        <adminButton>
+                        <a href="{{ route('admin.main') }}">Admin</a>
+                        </adminButton>
                 @endif
+
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
