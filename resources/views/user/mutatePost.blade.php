@@ -2,9 +2,10 @@
 
 @section('content')
 
+
 <section id="mutate">
 
-    <form id="edit" method="post" action="{{ route('user.updatePost') }}" enctype="multipart/form-data">
+    <form class="edit" method="post" action="{{ route('user.updatePost') }}" enctype="multipart/form-data">
         @csrf
         <input type="text" name="title" value="{{$posted['title']}}">
         <img src="{{asset('storage/postImages/'.$posted['image'])}}">

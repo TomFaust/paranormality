@@ -130,7 +130,13 @@ class NewsItemController extends Controller
 
     public function show($id)
     {
-        $posts = Posts::find($id);
+
+        $posts = Posts::Select('posts.id','posts.title','posts.image','posts.description','posts.active','posts.postedby')
+            ->addSelect(Posts::raw('count(likes.id) as likes_of_post'))
+            ->leftJoin('likes','likes.post','=','posts.id')
+            ->where('posts.id',$id)
+            ->get()
+            ->toArray();
 
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))
@@ -142,13 +148,21 @@ class NewsItemController extends Controller
             ->limit(5)
             ->get();
 
+        $iLiked = Likes::Select('post')
+            ->Where('user','=',Auth::id())
+            ->get()
+            ->toArray();
+
+        $iLiked = array_column($iLiked,'post');
+
         if($posts === null) {
             abort(404, 'pagina niet gevonder');
         }
 
         return view('posts.show',[
-            'posts' => $posts,
+            'posts' => $posts[0],
             'top' => $top,
+            'iLiked' => $iLiked,
         ]);
     }
 
@@ -164,12 +178,34 @@ class NewsItemController extends Controller
             ->where('category','LIKE',$request->get('categories'))
             ->where(Posts::raw('SUBSTRING(posts.created_at,1,7)'),'LIKE',$request->get('month'))
             ->where('active',1)
-            ->groupBy('posts.id')
-            ->orderBy('posts.created_at','desc')
-            ->skip($goto)->take(10)
+            ->groupBy('posts.id');
+
+
+        if(null !== $request->get('sort')){
+
+            switch ($request->get('sort')){
+
+                case 'latest':
+                    $posts = $posts->orderBy('posts.created_at','Desc');
+                    break;
+                case 'earliest':
+                    $posts = $posts->orderBy('posts.created_at','Asc');
+                    break;
+                case 'likes+':
+                    $posts = $posts->orderBy('likes_of_post','Desc');
+                    break;
+                case 'likes-':
+                    $posts = $posts->orderBy('likes_of_post','Asc');
+                    break;
+
+            }
+
+
+        }
+
+        $posts = $posts->skip($goto)->take(10)
             ->get()
             ->toArray();
-
 
         $top = Likes::select('posts.id','posts.image','posts.title')
             ->addSelect(Likes::raw('count(*) as likes_of_post'))

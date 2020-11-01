@@ -44,6 +44,13 @@
                     {{ __('Logout') }}
                 </a>
             </actions>
+
+            @if(Auth::user()->admin == 1)
+                <adminButton>
+                    <a href="{{ route('admin.main') }}">Admin</a>
+                </adminButton>
+            @endif
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>

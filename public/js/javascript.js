@@ -35,8 +35,6 @@ function setActive() {
     let id = event.target.id
     let csrf = document.querySelector('meta[name="csrf-token"]').content;
 
-    console.log(id)
-
     let xhr = new XMLHttpRequest();
     let url = "/set-active";
 
@@ -52,14 +50,12 @@ function setActive() {
 
 function deletePost() {
 
-    let c = confirm("Are you sure you want to delte this post?")
+    let c = confirm("Are you sure you want to delete this post?")
 
     if(c == true) {
 
         let id = event.target.id
         let csrf = document.querySelector('meta[name="csrf-token"]').content;
-
-        console.log(id)
 
         let xhr = new XMLHttpRequest();
         let url = "/delete-post";
@@ -90,4 +86,29 @@ function previewFile() {
     } else {
         preview.src = "";
     }
+}
+
+function deleteUser() {
+
+    let c = confirm("Are you sure you want to delete this post?")
+
+    if(c == true) {
+
+        let id = event.target.id
+        let csrf = document.querySelector('meta[name="csrf-token"]').content;
+
+        let xhr = new XMLHttpRequest();
+        let url = "/delete-user";
+
+        xhr.open("POST", url, true);
+
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({"post": id, "_token": csrf});
+
+        xhr.send(data);
+
+        location.reload();
+    }
+
 }

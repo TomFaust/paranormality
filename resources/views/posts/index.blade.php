@@ -60,7 +60,6 @@
 
     <posts>
 
-
         @if(empty($posts))
 
             <p>There were no posts found matching your criteria...</p>
@@ -76,7 +75,7 @@
 
                     <vote>
                         @if(Auth::id() == NULL)
-                            <image id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" disabled>
+                            <img id="{{$posts['id']}}" type="image" src="{{asset('images/like.png')}}" disabled>
 
                                     <likes id="likes{{$posts['id']}}">
                                         {{$posts['likes_of_post']}}
@@ -93,7 +92,7 @@
 
                                     @endif
 
-                                    onclick="sendJSON()" id="{{$posts['id']}}" src="{{asset('images/like.png')}}" >
+                                    onclick="sendJSON()" id="{{$posts['id']}}" src="{{asset('images/like.png')}}">
                             @csrf
 
                             <likes id="likes{{$posts['id']}}">

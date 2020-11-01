@@ -30,6 +30,7 @@
                 <input type="checkbox" onclick="setActive()" id="{{$posts['id']}}"@if($posts['active'] == 1) checked @endif>
                 <span class="slider round"></span>
             </label>
+
         </mutate>
 
     @endforeach

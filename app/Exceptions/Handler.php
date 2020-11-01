@@ -51,5 +51,6 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+        //abort(404, 'pagina niet gevonder');
     }
 }
